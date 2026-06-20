@@ -1,17 +1,17 @@
 package model;
 
-import Strategy.BotMoveStrategy;
+import Strategy.Bot.BotPlayingStrategy;
 import enums.BotLevel;
 
 public class Bot extends Player{
     private BotLevel botLevel;
-    private BotMoveStrategy botMoveStrategy;
+    private BotPlayingStrategy botPlayingStrategy;
 
 
-    public Bot(Character symbol, String name, int playerId, BotLevel botLevel, BotMoveStrategy botMoveStrategy) {
+    public Bot(Character symbol, String name, int playerId, BotLevel botLevel, BotPlayingStrategy botPlayingStrategy) {
         super(symbol, name, playerId);
         this.botLevel = botLevel;
-        this.botMoveStrategy = botMoveStrategy;
+        this.botPlayingStrategy = botPlayingStrategy;
     }
 
     public BotLevel getBotLevel() {
@@ -23,6 +23,6 @@ public class Bot extends Player{
     }
 
     public Move makeMove(Board board){
-        return botMoveStrategy.makeMove(board, this);
+        return botPlayingStrategy.makeMove(board, this);
     }
 }

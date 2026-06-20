@@ -1,5 +1,7 @@
 package model;
 
+import enums.CellStatus;
+
 public class Board {
     private Cell[][] cells;
     private int boardSize;
@@ -30,7 +32,7 @@ public class Board {
         this.cells = new Cell[boardSize][boardSize];
         for (int i = 0; i < boardSize; i++) {
             for (int j = 0; j < boardSize; j++) {
-                cells[i][j] = new Cell();
+                cells[i][j] = new Cell(i, j, null, CellStatus.EMPTY);
             }
         }
     }
